@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bands_ratings/Style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+{%  load static %}
+
+{%  if user.is_authenticated %}
+
+    {%  if get_user_data %}
+
+        <h1> You can only submit ratings once and you have already done so</h1>
+
+        <a href="{%  url 'logout'  %}?next={{request.path}}"> LOGOUT HERE</a>
+
+        {%  else %}
+
+
+
+
+
+<div class ="header">
+
+    <h1>Download 2023 band ratings</h1>
+    <br>
+    <h2></h2>Welcome {{ user.username }} </h2>
+
+    <br>
+    <br>
+    <br>
+
+
+</div>
+
+<div class="days">
+        <h2>Thursday</h2>
+    </div>
+
+<div class="row">
+<div class="stage-column">
+<form action="" method="POST">
+{%  csrf_token %}
+<h2>Apex stage </H2>
+{%  for band in  thursday_apex %}
+<li> {{ band.band_name }}
+
+ <select name="thursday_apex_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    </select>
+
+</li>
+{% endfor %}
+</div>
+
+<div class="stage-column">
+<h2> Opus stage</h2>
+{%  for band in  thursday_opus%}
+<li> {{ band.band_name }}
+
+<select name="thursday_opus_{{band.id}}">
+        <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    </select>
+</li>
+{% endfor %}
+</div>
+
+<div class="stage-column">
+<h2> Avalanche stage</h2>
+{%  for band in  thursday_avalanche%}
+<li> {{ band.band_name }}
+<select  name="thursday_avalanche_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    </select>
+
+</li>
+{% endfor %}
+</div>
+
+<div class="stage-column">
+<h2> Dogtooth stage c</h2>
+{%  for band in  thursday_dogtooth%}
+<li> {{ band.band_name }}
+
+<select name="thursday_dogtooth_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+</li>
+{% endfor %}
+</div>
+</div>
+
+
+<div class="friday">
+        <h2>Friday</h2>
+    </div>
+<div class="row">
+<div class="stage-column">
+<h2> Apex stage</h2>
+{%  for band in  friday_apex%}
+<li> {{ band.band_name }}
+
+<select name="friday_apex_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    </select>
+
+</li>
+{% endfor %}
+</div>
+<div class="stage-column">
+<h2> Opus stage</h2>
+{%  for band in  friday_opus%}
+<li> {{ band.band_name }}
+
+<select name="friday_opus_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+</li>
+{% endfor %}
+</div>
+<div class="stage-column">
+<h2> Avalance stage  </h2>
+{%  for band in  friday_avalanche%}
+<li> {{ band.band_name }}
+
+
+<select name="friday_avalanche_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+</li>
+{% endfor %}
+</div>
+<div class="stage-column">
+<h2> Dogtooth stage  </h2>
+{%  for band in  friday_dogtooth%}
+<li> {{ band.band_name }}
+
+<select name="friday_dogtooth_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+</li>
+{% endfor %}
+</div>
+</div>
+<div class="saturday">
+        <h2>Saturday</h2>
+    </div>
+<div class="row">
+<div class="stage-column">
+<h2> Apex stage</h2>
+{%  for band in  saturday_apex%}
+<li> {{ band.band_name }}
+
+<select name="saturday_apex_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    </select>
+
+</li>
+{% endfor %}
+</div>
+<div class="stage-column">
+<h2> Opus stage</h2>
+{%  for band in  saturday_opus%}
+<li> {{ band.band_name }}
+
+<select name="saturday_opus_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+</li>
+{% endfor %}
+</div>
+<div class="stage-column">
+<h2> Avalanche stage</h2>
+{%  for band in  saturday_avalanche%}
+<li> {{ band.band_name }}
+
+<select name="saturday_avalanche_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+</li>
+{% endfor %}
+</div>
+<div class="stage-column">
+<h2> Dogtooth stage  </h2>
+{%  for band in  saturday_dogtooth%}
+<li> {{ band.band_name }}
+
+<select name="saturday_dogtooth_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+</li>
+{% endfor %}
+</div>
+</div>
+<div class="sunday">
+        <h2>Sunday</h2>
+    </div>
+<div class="row">
+<div class="stage-column">
+<h2> Apex stage</h2>
+{%  for band in  sunday_apex%}
+<li> {{ band.band_name }}
+
+<select name="sunday_apex_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+</li>
+{% endfor %}
+</div>
+<div class="stage-column">
+<h2> Opus stage</h2>
+{%  for band in  sunday_opus%}
+<li> {{ band.band_name }}
+
+<select name="sunday_opus_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+</li>
+{% endfor %}
+</div>
+<div class="stage-column">
+<h2> Avalanche stage</h2>
+{%  for band in  sunday_avalanche%}
+<li> {{ band.band_name }}
+
+<select name="sunday_avalanche_{{band.id}}">
+     <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    </select>
+
+</li>
+{% endfor %}
+</div>
+<div class="stage-column">
+<h2> Dogtooth stage </h2>
+{%  for band in  sunday_dogtooth%}
+<li> {{ band.band_name }}
+
+<select name="sunday_dogtooth_{{band.id}}">
+
+
+
+    <option hidden disabled selected value>  did not watch  </option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+</select>
+
+</li>
+{% endfor %}
+</div>
+
+</div>
+<div class="row">
+
+
+    <input type ='submit' value="Submit ratings">
+    <br>
+
+</form>
+
+</div>
+        {% endif %}
+    {%  else %}
+    <p> You are not logged in</p>
+    <a href="{%  url 'login'  %}?next={{request.path}}">LOGIN HERE</a>
+    {% endif %}
+
+
+</body>
+
+</html>
